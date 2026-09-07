@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-morning-blue: #91A8A3;
+  --color-smoky-black: #0C140C;
+  --color-dark-olive: #566933;
+  --color-android-green: #A6BC36;
+  --color-june-bud: #C5D046;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  body {
+    @apply bg-morning-blue text-smoky-black antialiased selection:bg-dark-olive selection:text-white;
+  }
+  
+  /* Dark Mode support utilizing the specified palette */
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-smoky-black text-morning-blue selection:bg-android-green selection:text-smoky-black;
+    }
+  }
+}
+
+
+/* Custom scrollbar for Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
