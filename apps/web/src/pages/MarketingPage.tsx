@@ -8,6 +8,7 @@ import MarketingHero from '../components/marketing/MarketingHero';
 import IntroSection from '../components/marketing/IntroSection';
 import CompleteVisibility from '../components/marketing/CompleteVisibility';
 import ServicesCards from '../components/marketing/ServicesCards';
+import FeaturesBento from '../components/marketing/FeaturesBento';
 import SupplyChainFlow from '../components/marketing/SupplyChainFlow';
 import GlobalNetwork from '../components/marketing/GlobalNetwork';
 import AiIntelligence from '../components/marketing/AiIntelligence';
@@ -56,30 +57,35 @@ function MarketingPage() {
       <IntroSection />
 
       {/* 3. PLATFORM / COMPLETE VISIBILITY */}
-      <CompleteVisibility />
+      <section id="platform">
+        <CompleteVisibility />
+      </section>
 
-      {/* 4. LOGISTICS / SERVICES CARDS */}
-      <ServicesCards />
+      {/* 4. LOGISTICS / SERVICES CARDS & BENTO */}
+      <section id="solutions">
+        <ServicesCards />
+        <FeaturesBento />
+        <SupplyChainFlow />
+      </section>
 
-      {/* 5. SUPPLY CHAIN FLOW */}
-      <SupplyChainFlow />
+      {/* 5. GLOBAL NETWORK & LIVE TRACKING */}
+      <section id="tracking">
+        <GlobalNetwork />
+        <LiveTracking />
+      </section>
 
-      {/* 6. GLOBAL NETWORK / MAP */}
-      <GlobalNetwork />
+      {/* 6. AI / INTELLIGENCE SECTION */}
+      <section id="intelligence">
+        <AiIntelligence />
+      </section>
 
-      {/* 7. AI / INTELLIGENCE SECTION */}
-      <AiIntelligence />
+      {/* 7. COMPANY / STATISTICS & CTA */}
+      <section id="company">
+        <Statistics />
+        <CtaSection />
+      </section>
 
-      {/* 8. REAL-TIME TRACKING SECTION */}
-      <LiveTracking />
-
-      {/* 9. STATISTICS SECTION */}
-      <Statistics />
-
-      {/* 10. CTA SECTION */}
-      <CtaSection />
-
-      {/* 11. FOOTER */}
+      {/* FOOTER */}
       <Footer />
     </div>
   );

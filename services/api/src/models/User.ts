@@ -7,7 +7,7 @@ export interface IUser extends Document {
   password?: string;
   role: 'Super Admin' | 'Company Admin' | 'Dispatcher' | 'Warehouse Manager' | 'Driver';
   companyId?: mongoose.Types.ObjectId;
-  status: 'Active' | 'Inactive';
+  status: 'Active' | 'Inactive' | 'Pending';
   createdAt: Date;
   updatedAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
@@ -23,19 +23,14 @@ const UserSchema: Schema = new Schema({
     default: 'Company Admin' 
   },
   companyId: { type: Schema.Types.ObjectId, ref: 'Company' },
-  status: { type: String, enum: ['Active', 'Inactive'], default: 'Active' },
+  status: { type: String, enum: ['Active', 'Inactive', 'Pending'], default: 'Active' },
 }, { timestamps: true });
 
-UserSchema.pre<IUser>('save', async function (next: any) {
-  if (!this.isModified('password') || !this.password) return next();
+UserSchema.pre<IUser>('save', async function () {
+  if (!this.isModified('password') || !this.password) return;
   
-  try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (err: any) {
-    next(err);
-  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
 UserSchema.methods.comparePassword = async function (candidatePassword: string): Promise<boolean> {

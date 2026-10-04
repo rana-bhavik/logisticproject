@@ -42,7 +42,7 @@ const Profile: React.FC = () => {
         <div className="p-6 border border-android-green/30 bg-android-green/5 rounded-lg flex justify-between items-center">
           <div>
             <h4 className="text-white font-medium mb-1">Billing Cycle</h4>
-            <p className="text-sm text-morning-blue/80">Next invoice on Oct 1, 2026 for $12,500.00</p>
+            <p className="text-sm text-morning-blue/80">Next invoice on Oct 1, 2026 for ₹12,500.00</p>
           </div>
           <button className="px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors text-sm font-medium">
             Manage Billing

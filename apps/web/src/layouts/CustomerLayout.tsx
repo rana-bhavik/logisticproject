@@ -1,13 +1,23 @@
 import React from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Briefcase, Building2, Ticket, LifeBuoy, LogOut, Bell } from 'lucide-react';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Briefcase, Building2, Ticket, LifeBuoy, LogOut, Bell, Package, Users } from 'lucide-react';
 
 const CustomerLayout: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
 
   const navItems = [
     { name: 'Dashboard', path: '/customer', icon: Briefcase },
+    { name: 'My Shipments & Orders', path: '/customer/orders', icon: Package },
     { name: 'Company Profile', path: '/customer/profile', icon: Building2 },
+    { name: 'Team & Users', path: '/customer/users', icon: Users },
     { name: 'Support Tickets', path: '/customer/tickets', icon: Ticket },
     { name: 'Help Center', path: '/customer/help', icon: LifeBuoy },
   ];
@@ -43,7 +53,10 @@ const CustomerLayout: React.FC = () => {
         </div>
 
         <div className="p-4 border-t border-dark-olive/30">
-          <button className="flex items-center gap-3 px-4 py-3 w-full text-left text-morning-blue/80 hover:bg-white/5 hover:text-white rounded-lg transition-colors">
+          <button 
+            onClick={handleSignOut}
+            className="flex items-center gap-3 px-4 py-3 w-full text-left text-morning-blue/80 hover:bg-white/5 hover:text-white rounded-lg transition-colors cursor-pointer"
+          >
             <LogOut size={18} />
             Sign Out
           </button>

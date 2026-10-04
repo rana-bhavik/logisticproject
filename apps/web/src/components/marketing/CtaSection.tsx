@@ -45,7 +45,8 @@ const CtaSection: React.FC = () => {
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
       <div className="absolute inset-0 bg-smoky-black/80 mix-blend-multiply z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#080d08] to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050805] from-0% via-transparent via-20% to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#080d08] from-0% via-[#080d08]/80 via-15% to-transparent z-10 pointer-events-none" />
       
       <div className="relative z-20 max-w-4xl mx-auto">
         <h2 className="cta-content text-5xl md:text-7xl font-bold tracking-tighter text-white mb-8 drop-shadow-2xl">

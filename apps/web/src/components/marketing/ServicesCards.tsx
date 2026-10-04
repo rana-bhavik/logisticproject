@@ -22,12 +22,15 @@ const SpotlightCard = ({ children, className = "" }: { children: React.ReactNode
       className={`relative overflow-hidden ${className}`}
     >
       <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
+        className="pointer-events-none absolute -inset-px transition-opacity duration-700 z-0"
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(166,188,54,0.15), transparent 40%)`,
+          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.06), transparent 40%)`,
         }}
       />
+      {/* Subtle top border gradient on hover */}
+      <div className={`absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent transition-opacity duration-700 ${opacity === 1 ? 'opacity-30' : 'opacity-0'}`} />
+      
       {/* Content wrapper to stay above the spotlight */}
       <div className="relative z-10 h-full flex flex-col justify-between">
         {children}
@@ -40,19 +43,30 @@ const ServicesCards: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.from('.service-card', {
+    // Elegant, sophisticated fade up for headers
+    gsap.from('.sc-header', {
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top 75%',
-        toggleActions: 'play none none reverse',
       },
-      scale: 0.5,
-      z: -300,
-      rotationX: 15,
+      y: 30,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.1,
+      ease: 'power2.out',
+    });
+
+    // Elegant zero-bounce fade up for cards
+    gsap.from('.service-card', {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top 65%',
+      },
+      y: 40,
       opacity: 0,
       duration: 1.2,
       stagger: 0.15,
-      ease: 'back.out(1.2)',
+      ease: 'power2.out',
     });
   }, { scope: containerRef });
 
@@ -63,36 +77,38 @@ const ServicesCards: React.FC = () => {
   ];
 
   return (
-    <section ref={containerRef} className="py-32 px-8 bg-smoky-black relative overflow-hidden">
-      {/* Ambient glowing aura background */}
-      <div className="absolute top-1/4 -left-1/4 w-[800px] h-[800px] bg-[#2a452a]/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-        <img src="/images/marketing-4.png" alt="Texture" className="w-full h-full object-cover" />
-      </div>
+    <section ref={containerRef} className="py-32 px-8 bg-[#080d08] relative overflow-hidden border-t border-white/5">
+      {/* Minimalist Ambient Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">End-to-End Solutions</h2>
-          <p className="text-xl text-morning-blue max-w-2xl opacity-90">Every link in your supply chain, managed through a single pane of glass.</p>
+        <div className="mb-20">
+          <div className="sc-header inline-flex items-center gap-2 px-3 py-1 rounded border border-white/10 mb-6 bg-white/5">
+             <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+             <span className="text-[10px] font-mono text-white/70 tracking-widest uppercase">Platform Capabilities</span>
+          </div>
+          <h2 className="sc-header text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-6">End-to-End Solutions</h2>
+          <p className="sc-header text-lg text-white/60 max-w-2xl font-light">Every link in your supply chain, managed through a single pane of glass with unprecedented visibility and control.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <SpotlightCard 
               key={idx} 
-              className="service-card group rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 hover:border-android-green/50 transition-colors duration-500 min-h-[320px] shadow-2xl"
+              className="service-card group rounded-2xl bg-[#0f140f] border border-white/5 p-10 hover:bg-[#141a14] transition-colors duration-700 min-h-[360px] shadow-2xl"
             >
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-morning-blue opacity-80">{service.desc}</p>
+                <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">{service.title}</h3>
+                <p className="text-white/50 font-light leading-relaxed">{service.desc}</p>
               </div>
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-end justify-between">
+              <div className="mt-8 pt-6 border-t border-white/5 flex items-end justify-between">
                 <div>
-                  <p className="text-4xl font-bold bg-gradient-to-r from-android-green to-white text-transparent bg-clip-text tracking-tight">{service.metric}</p>
-                  <p className="text-sm text-morning-blue opacity-60 mt-1 uppercase tracking-widest">{service.metricLabel}</p>
+                  <p className="text-4xl font-light text-white tracking-tight">{service.metric}</p>
+                  <p className="text-[10px] text-white/40 mt-2 uppercase tracking-[0.2em] font-mono">{service.metricLabel}</p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-android-green group-hover:text-smoky-black transition-all duration-300 transform group-hover:scale-110">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                {/* Sophisticated arrow interaction without scaling */}
+                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-colors duration-500 overflow-hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/50 group-hover:text-white transition-all duration-500 transform -translate-x-1 group-hover:translate-x-0"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </div>
               </div>
             </SpotlightCard>

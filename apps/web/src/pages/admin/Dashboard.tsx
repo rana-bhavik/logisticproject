@@ -76,7 +76,7 @@ const Dashboard: React.FC = () => {
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" vertical={false} />
                 <XAxis dataKey="name" stroke="#B5C3C3" opacity={0.5} fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="#B5C3C3" opacity={0.5} fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `$${value}`} />
+                <YAxis stroke="#B5C3C3" opacity={0.5} fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `₹${value}`} />
                 <Tooltip 
                   contentStyle={{ backgroundColor: '#0C140C', borderColor: '#566933', color: '#fff' }}
                   itemStyle={{ color: '#A6BC36' }}

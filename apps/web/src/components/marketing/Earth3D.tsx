@@ -1,156 +1,243 @@
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Sphere, useTexture, QuadraticBezierLine, Stars } from '@react-three/drei';
 import * as THREE from 'three';
-import { LineMaterial } from 'three-stdlib';
+import { Line } from '@react-three/drei';
 
-// Helper to convert Lat/Lon to 3D spherical coordinates
-const latLongToVector3 = (lat: number, lon: number, radius: number): THREE.Vector3 => {
-  const phi = (90 - lat) * (Math.PI / 180);
-  const theta = (lon + 180) * (Math.PI / 180);
+// -- PROCEDURAL VEHICLE COMPONENTS --
 
-  const x = -(radius * Math.sin(phi) * Math.cos(theta));
-  const z = (radius * Math.sin(phi) * Math.sin(theta));
-  const y = (radius * Math.cos(phi));
-
-  return new THREE.Vector3(x, y, z);
+const Airplane = () => {
+  return (
+    <group scale={0.3}>
+      {/* Fuselage */}
+      <mesh position={[0, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
+        <cylinderGeometry args={[0.4, 0.4, 3.5, 16]} />
+        <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
+      </mesh>
+      {/* Wings */}
+      <mesh position={[0.2, 0, 0]}>
+        <boxGeometry args={[1.5, 0.1, 4]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+      {/* Tail */}
+      <mesh position={[-1.4, 0.5, 0]} rotation={[0, 0, 0.2]}>
+        <boxGeometry args={[0.5, 1, 0.1]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+    </group>
+  );
 };
 
-// Define some global shipping routes (Lat, Lon pairs)
-const routes = [
-  // New York to London
-  { start: { lat: 40.7128, lon: -74.0060 }, end: { lat: 51.5074, lon: -0.1278 } },
-  // London to Tokyo
-  { start: { lat: 51.5074, lon: -0.1278 }, end: { lat: 35.6762, lon: 139.6503 } },
-  // Tokyo to Sydney
-  { start: { lat: 35.6762, lon: 139.6503 }, end: { lat: -33.8688, lon: 151.2093 } },
-  // Sydney to Los Angeles
-  { start: { lat: -33.8688, lon: 151.2093 }, end: { lat: 34.0522, lon: -118.2437 } },
-  // Los Angeles to New York
-  { start: { lat: 34.0522, lon: -118.2437 }, end: { lat: 40.7128, lon: -74.0060 } },
-  // Dubai to Singapore
-  { start: { lat: 25.2048, lon: 55.2708 }, end: { lat: 1.3521, lon: 103.8198 } },
-  // Singapore to Shanghai
-  { start: { lat: 1.3521, lon: 103.8198 }, end: { lat: 31.2304, lon: 121.4737 } },
-  // Shanghai to Rotterdam
-  { start: { lat: 31.2304, lon: 121.4737 }, end: { lat: 51.9225, lon: 4.4791 } },
-  // Frankfurt to New York
-  { start: { lat: 50.1109, lon: 8.6821 }, end: { lat: 40.7128, lon: -74.0060 } },
-  // Hong Kong to LA
-  { start: { lat: 22.3193, lon: 114.1694 }, end: { lat: 34.0522, lon: -118.2437 } },
-  // Cape Town to London
-  { start: { lat: -33.9249, lon: 18.4241 }, end: { lat: 51.5074, lon: -0.1278 } },
-  // Rio to Miami
-  { start: { lat: -22.9068, lon: -43.1729 }, end: { lat: 25.7617, lon: -80.1918 } },
-  // Mumbai to Dubai
-  { start: { lat: 19.0760, lon: 72.8777 }, end: { lat: 25.2048, lon: 55.2708 } },
-  // Singapore to Sydney
-  { start: { lat: 1.3521, lon: 103.8198 }, end: { lat: -33.8688, lon: 151.2093 } },
-  // Shanghai to Tokyo
-  { start: { lat: 31.2304, lon: 121.4737 }, end: { lat: 35.6762, lon: 139.6503 } },
-  // New York to Rio
-  { start: { lat: 40.7128, lon: -74.0060 }, end: { lat: -22.9068, lon: -43.1729 } },
-];
+const Truck = () => {
+  return (
+    <group scale={0.25}>
+      {/* Cab */}
+      <mesh position={[1.5, 0.5, 0]}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="#e63946" roughness={0.4} />
+      </mesh>
+      {/* Trailer */}
+      <mesh position={[-0.5, 0.6, 0]}>
+        <boxGeometry args={[2.8, 1.2, 1.1]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+      {/* Wheels */}
+      {[-1.5, 0, 1.5].map((x, i) => (
+        <mesh key={i} position={[x, 0, 0.6]} rotation={[Math.PI/2, 0, 0]}>
+          <cylinderGeometry args={[0.3, 0.3, 0.2, 16]} />
+          <meshStandardMaterial color="#333333" />
+        </mesh>
+      ))}
+      {[-1.5, 0, 1.5].map((x, i) => (
+        <mesh key={`l-${i}`} position={[x, 0, -0.6]} rotation={[Math.PI/2, 0, 0]}>
+          <cylinderGeometry args={[0.3, 0.3, 0.2, 16]} />
+          <meshStandardMaterial color="#333333" />
+        </mesh>
+      ))}
+    </group>
+  );
+};
 
-const AnimatedRoute = ({ arc }: { arc: any }) => {
-  const lineRef = useRef<any>(null);
+const Ship = () => {
+  return (
+    <group scale={0.25}>
+      {/* Hull */}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[5, 1, 1.5]} />
+        <meshStandardMaterial color="#e63946" />
+      </mesh>
+      <mesh position={[2.5, 0, 0]} rotation={[0, 0, -Math.PI/2]}>
+         <cylinderGeometry args={[0.75, 0.75, 1, 16]} />
+         <meshStandardMaterial color="#e63946" />
+      </mesh>
+      {/* Bridge */}
+      <mesh position={[-1.5, 1, 0]}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+      {/* Containers */}
+      <mesh position={[0.5, 0.75, 0.3]}>
+        <boxGeometry args={[0.8, 0.5, 0.4]} />
+        <meshStandardMaterial color="#457b9d" />
+      </mesh>
+      <mesh position={[1.5, 0.75, -0.3]}>
+        <boxGeometry args={[0.8, 0.5, 0.4]} />
+        <meshStandardMaterial color="#fca311" />
+      </mesh>
+      <mesh position={[0.5, 1.25, 0.3]}>
+        <boxGeometry args={[0.8, 0.5, 0.4]} />
+        <meshStandardMaterial color="#2a9d8f" />
+      </mesh>
+    </group>
+  );
+};
 
-  useFrame((_, delta) => {
-    if (lineRef.current?.material) {
-      // Animate the dash offset to simulate continuous movement along the wave
-      lineRef.current.material.dashOffset -= delta * 1.5;
+const Train = () => {
+  return (
+    <group scale={0.25}>
+      {/* Engine */}
+      <mesh position={[1.5, 0.5, 0]}>
+        <boxGeometry args={[1.5, 1, 1]} />
+        <meshStandardMaterial color="#fca311" />
+      </mesh>
+      {/* Cars */}
+      {[-0.5, -2.5, -4.5].map((x, i) => (
+        <mesh key={i} position={[x, 0.5, 0]}>
+          <boxGeometry args={[1.8, 1, 1]} />
+          <meshStandardMaterial color="#8d99ae" />
+        </mesh>
+      ))}
+    </group>
+  );
+};
+
+// -- ANIMATED ROUTE LOGIC --
+
+interface RouteProps {
+  points: [number, number, number][];
+  VehicleComponent: React.FC;
+  speed?: number;
+  yOffset?: number;
+}
+
+const AnimatedVehicleRoute: React.FC<RouteProps> = ({ points, VehicleComponent, speed = 1, yOffset = 0 }) => {
+  const groupRef = useRef<THREE.Group>(null);
+  
+  const curve = useMemo(() => {
+    return new THREE.CatmullRomCurve3(points.map(p => new THREE.Vector3(p[0], p[1], p[2])));
+  }, [points]);
+
+  const linePoints = useMemo(() => curve.getPoints(100), [curve]);
+
+  useFrame((state) => {
+    if (!groupRef.current) return;
+    
+    // Smooth infinite loop timing
+    const time = (state.clock.getElapsedTime() * 0.05 * speed) % 1;
+    
+    const position = curve.getPointAt(time);
+    const lookAtPosition = curve.getPointAt((time + 0.01) % 1);
+    
+    groupRef.current.position.copy(position);
+    groupRef.current.position.y += yOffset; 
+    groupRef.current.lookAt(lookAtPosition);
+    
+    // Subtle vehicle bounce
+    if (yOffset === 0) {
+      groupRef.current.position.y += Math.abs(Math.sin(time * Math.PI * 60)) * 0.05;
+    } else {
+      // Plane floats smoothly
+      groupRef.current.position.y += Math.sin(time * Math.PI * 10) * 0.2;
+      groupRef.current.rotation.z += Math.sin(time * Math.PI * 5) * 0.1;
     }
   });
 
   return (
-    <>
-      <QuadraticBezierLine
-        ref={lineRef}
-        start={arc.start}
-        end={arc.end}
-        mid={arc.mid}
-        color="#a6bc36"
-        lineWidth={0.8} // Slimmer lines
-        dashed={true}
-        dashScale={10}
-        dashSize={1}
+    <group>
+      {/* Dashed Path Line */}
+      <Line 
+        points={linePoints} 
+        color="#ffffff" 
+        lineWidth={1.5}
+        dashed 
+        dashScale={5} 
+        dashSize={2} 
         dashOffset={0}
-        transparent
-        opacity={0.6}
+        transparent 
+        opacity={0.6} 
       />
-      {/* Endpoint dots */}
-      <mesh position={arc.start}>
-        <sphereGeometry args={[0.02, 16, 16]} />
-        <meshStandardMaterial color="#a6bc36" emissive="#a6bc36" emissiveIntensity={3} toneMapped={false} />
+      {/* Map Nodes (Endpoints) */}
+      <mesh position={points[0]} rotation={[-Math.PI/2, 0, 0]}>
+        <circleGeometry args={[0.3, 32]} />
+        <meshBasicMaterial color="#ffffff" />
+        <mesh position={[0,0,0.01]}>
+           <circleGeometry args={[0.15, 32]} />
+           <meshBasicMaterial color="#178b90" />
+        </mesh>
       </mesh>
-      <mesh position={arc.end}>
-        <sphereGeometry args={[0.02, 16, 16]} />
-        <meshStandardMaterial color="#a6bc36" emissive="#a6bc36" emissiveIntensity={3} toneMapped={false} />
+      <mesh position={points[points.length-1]} rotation={[-Math.PI/2, 0, 0]}>
+        <circleGeometry args={[0.3, 32]} />
+        <meshBasicMaterial color="#ffffff" />
+        <mesh position={[0,0,0.01]}>
+           <circleGeometry args={[0.15, 32]} />
+           <meshBasicMaterial color="#178b90" />
+        </mesh>
       </mesh>
-    </>
+
+      {/* The moving vehicle */}
+      <group ref={groupRef}>
+        <VehicleComponent />
+      </group>
+    </group>
   );
 };
 
 export const Earth3D: React.FC = () => {
   const groupRef = useRef<THREE.Group>(null);
-  
-  // Load high-res Earth textures for a premium look
-  const [colorMap, specularMap, bumpMap, emissiveMap] = useTexture([
-    'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
-    'https://unpkg.com/three-globe/example/img/earth-water.png',
-    'https://unpkg.com/three-globe/example/img/earth-topology.png',
-    'https://unpkg.com/three-globe/example/img/earth-night.jpg'
-  ]);
 
-  // Slowly rotate the globe continuously
+  // Slow continuous spin of the entire map
   useFrame(() => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += 0.001;
+      groupRef.current.rotation.y = Math.sin(Date.now() * 0.0005) * 0.1;
     }
   });
 
-  const radius = 2.2; // Full, clear view of the globe
-
-  // Pre-calculate arcs for performance
-  const arcs = useMemo(() => {
-    return routes.map(route => {
-      const start = latLongToVector3(route.start.lat, route.start.lon, radius);
-      const end = latLongToVector3(route.end.lat, route.end.lon, radius);
-      
-      const distance = start.distanceTo(end);
-      const elevation = distance * 0.2;
-      const mid = start.clone().lerp(end, 0.5).normalize().multiplyScalar(radius + elevation);
-
-      return { start, end, mid };
-    });
-  }, [radius]);
-
   return (
-    // Centered, full globe view with a slight tilt
-    <group ref={groupRef} rotation={[0.2, -Math.PI / 2, 0]}>
+    <group ref={groupRef}>
+      {/* Base Map Surface (Bright Teal) */}
+      <mesh position={[0, -0.1, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[25, 20]} />
+        <meshStandardMaterial color="#178b90" roughness={0.3} metalness={0.2} />
+      </mesh>
       
-      {/* Starfield Background */}
-      <Stars radius={100} depth={50} count={4000} factor={4} saturation={0} fade speed={1} />
+      {/* Abstract Grid to give it scale and context */}
+      <gridHelper args={[25, 25, 0xffffff, 0xffffff]} position={[0, -0.05, 0]} material-opacity={0.15} material-transparent />
 
-      {/* Real Earth Sphere with Half-Day / Half-Night */}
-      <Sphere args={[radius, 64, 64]}>
-        <meshStandardMaterial 
-          map={colorMap} 
-          roughnessMap={specularMap}
-          bumpMap={bumpMap}
-          bumpScale={0.05}
-          emissiveMap={emissiveMap}
-          emissive={new THREE.Color(0xffffee)} // slightly warm city lights
-          emissiveIntensity={2.5} // very bright city lights
-          metalness={0.1}
-          roughness={0.8}
-        />
-      </Sphere>
-
-      {/* Connection Arcs (Waves) */}
-      {arcs.map((arc, i) => (
-        <AnimatedRoute key={i} arc={arc} />
-      ))}
+      {/* Routes & Vehicles */}
+      {/* Ship Route (Ocean curve) */}
+      <AnimatedVehicleRoute 
+        points={[[-8, 0, 5], [-3, 0, 6], [4, 0, 5], [9, 0, 3]]} 
+        VehicleComponent={Ship} 
+        speed={0.8}
+      />
+      {/* Plane Route (Air curve) */}
+      <AnimatedVehicleRoute 
+        points={[[-9, 0, -5], [-4, 0, -2], [3, 0, -4], [9, 0, -6]]} 
+        VehicleComponent={Airplane} 
+        speed={2.0}
+        yOffset={3.0}
+      />
+      {/* Truck Route (Land zig-zag) */}
+      <AnimatedVehicleRoute 
+        points={[[-6, 0, -2], [-2, 0, 1], [3, 0, 0], [7, 0, 4]]} 
+        VehicleComponent={Truck} 
+        speed={1.4}
+      />
+      {/* Train Route (Long curve) */}
+      <AnimatedVehicleRoute 
+        points={[[-8, 0, 1], [-2, 0, -2], [4, 0, -1], [8, 0, -2]]} 
+        VehicleComponent={Train} 
+        speed={1.1}
+      />
     </group>
   );
 };

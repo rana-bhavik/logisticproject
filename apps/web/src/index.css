@@ -51,3 +51,24 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash-fast {
+  animation: dash 4s linear infinite;
+}
+
+.animate-dash-medium {
+  animation: dash 7s linear infinite;
+}
+
+.animate-dash-slow {
+  animation: dash 11s linear infinite;
+}
