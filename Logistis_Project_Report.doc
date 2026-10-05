@@ -1,0 +1,388 @@
+
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Project Documentation</title>
+<style>
+  body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 11pt;
+    color: #333333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  p { text-align: justify; }
+</style>
+<!--[if gte mso 9]>
+<xml>
+  <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+  </w:WordDocument>
+</xml>
+<![endif]-->
+</head>
+<body>
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Project Documentation</h1>
+
+<h2 style="color: #2980b9; font-family: Arial; border-bottom: 2px solid #2980b9; padding-bottom: 5px; margin-top: 25px;">Cover Page</h2>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Project Title:</b> Logistis - Global Logistics Management System</p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Submitted By:</b></p>
+<li style="margin-bottom: 5px;">Rana Shubham — Group Leader</li>
+<li style="margin-bottom: 5px;">Rana Shahil</li>
+<li style="margin-bottom: 5px;">Rana Bhavik</li>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Course:</b> [Information not available in the provided project files.]</p>
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>College/University:</b> [Information not available in the provided project files.]</p>
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Academic Year:</b> [Information not available in the provided project files.]</p>
+
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 1 — Introduction</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The logistics and supply chain industry forms the backbone of global trade. However, managing fleets, shipments, and warehouses involves complex coordination that is often prone to human error and delays. The "Logistis" project is a comprehensive logistics management system designed to streamline these operations. </p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The purpose of this project is to provide an integrated platform where administrators, dispatchers, warehouse managers, drivers, and corporate clients can interact seamlessly. By bringing all logistics operations into a single digital ecosystem, the system aims to improve efficiency, provide real-time tracking, optimize routes using Artificial Intelligence, and enhance overall transparency for clients. </p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 2 — Problem Statement</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">In traditional logistics environments, data is often siloed across different departments. Manual systems and fragmented software tools lead to miscommunication between dispatchers and drivers, inaccurate estimated times of arrival (ETAs), and inefficient routing. </p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The existing problem is that when a client places an order for a shipment, tracking that shipment across multiple transit points (warehouses, sea ports, highways) requires constant manual updates. Furthermore, without intelligent routing, fleets consume excess fuel and face unexpected delays due to traffic and weather conditions. The proposed "Logistis" system solves this by unifying data into a central database and providing role-specific dashboards that update in real-time, augmented by AI tools to predict delays before they occur.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 3 — Objectives</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The main objectives of the Logistis project are to:</p>
+<li style="margin-bottom: 5px;">Develop an easy-to-use, unified dashboard for different user roles (Super Admin, Company Admin, Dispatcher, Warehouse Manager, Driver).</li>
+<li style="margin-bottom: 5px;">Automate the tracking and management of shipments and orders.</li>
+<li style="margin-bottom: 5px;">Provide secure, role-based data access and user authentication using JWT.</li>
+<li style="margin-bottom: 5px;">Implement AI functionality to predict accurate ETAs based on distance, transport mode, weather, and traffic.</li>
+<li style="margin-bottom: 5px;">Provide a responsive, real-time frontend interface that interacts smoothly with the backend database.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 4 — Existing System</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">Traditionally, logistics management relies on a combination of spreadsheets, manual data entry, phone calls to drivers, and disconnected tracking software. </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">The limitations of this existing method include:</p>
+<li style="margin-bottom: 5px;">High margin for human error during data entry.</li>
+<li style="margin-bottom: 5px;">Lack of real-time visibility for clients waiting for their shipments.</li>
+<li style="margin-bottom: 5px;">Sub-optimal route planning relying solely on human intuition.</li>
+<li style="margin-bottom: 5px;">Difficulty in auditing logs and tracking historical performance.</li>
+<p style="margin-bottom: 10px; line-height: 1.6;">Because of these disadvantages, there is a strong need for an automated, centralized, and intelligent system like Logistis.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 5 — Proposed System</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The proposed system is a full-stack web application with the following major features:</p>
+<li style="margin-bottom: 5px;"><b>Role-Based Portals:</b> Dedicated interfaces for Admin, Customer, and Driver.</li>
+<li style="margin-bottom: 5px;"><b>Frontend Architecture:</b> Built with React, Vite, and Tailwind CSS for a modern, responsive user experience.</li>
+<li style="margin-bottom: 5px;"><b>Backend Architecture:</b> Built on Node.js and Express to handle RESTful APIs.</li>
+<li style="margin-bottom: 5px;"><b>Database:</b> MongoDB is used to store unstructured data for Users, Companies, Orders, and Shipments flexibly.</li>
+<li style="margin-bottom: 5px;"><b>Authentication:</b> Secure login and registration using JSON Web Tokens (JWT).</li>
+<li style="margin-bottom: 5px;"><b>AI Center:</b> An integrated AI module that simulates predictive ETAs and optimizes delivery routes.</li>
+<li style="margin-bottom: 5px;"><b>Admin Functionality:</b> Ability to approve pending users, manage fleets, oversee warehouse inventory, and review financial analytics.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 6 — Technology Used</h1>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial; font-size: 11pt;">
+<tr><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Technology</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Purpose</th></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">React</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Frontend interface and component rendering</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">JavaScript / TypeScript</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Frontend logic and backend server scripting</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Tailwind CSS</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">UI styling and responsive design</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Node.js</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Backend runtime environment</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Express.js</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Backend server framework and API routing</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">MongoDB</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Database storage</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Mongoose</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Database object modeling and interaction</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Socket.io</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Real-time communication</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">JWT (JSON Web Token)</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">User authentication and session security</td></tr>
+</table>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 7 — System Requirements</h1>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">Hardware Requirements</h3>
+<li style="margin-bottom: 5px;"><b>Processor:</b> Intel Core i3 / AMD Ryzen 3 or higher</li>
+<li style="margin-bottom: 5px;"><b>RAM:</b> 4GB minimum (8GB recommended for smooth development server running)</li>
+<li style="margin-bottom: 5px;"><b>Storage:</b> 1GB of free space</li>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">Software Requirements</h3>
+<li style="margin-bottom: 5px;"><b>Operating System:</b> Windows 10/11, macOS, or Linux</li>
+<li style="margin-bottom: 5px;"><b>Browser:</b> Google Chrome, Mozilla Firefox, or Microsoft Edge</li>
+<li style="margin-bottom: 5px;"><b>Development Tools:</b> VS Code</li>
+<li style="margin-bottom: 5px;"><b>Environment:</b> Node.js (v18+)</li>
+<li style="margin-bottom: 5px;"><b>Database:</b> MongoDB locally installed or MongoDB Atlas cloud</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 8 — System Architecture</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The project follows a standard MERN-like Client-Server architecture.</p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>User Interaction Flow:</b></p>
+<p style="margin-bottom: 10px; line-height: 1.6;">User  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">React Frontend (Vite)  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Axios API Request (<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">/api/...</code>)  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Express.js Backend Controller  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Mongoose Model  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">MongoDB Database  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">JSON Response back to Frontend</p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>AI Module Flow:</b></p>
+<p style="margin-bottom: 10px; line-height: 1.6;">User inputs route details  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Frontend AI Center Component  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Backend AI Route (<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">/api/ai/predict-eta</code>)  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Processing/Calculation Logic  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Response with optimal route & ETA  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">↓  </p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Frontend Display</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 9 — Project Modules</h1>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">1. Authentication & User Management Module</h3>
+<li style="margin-bottom: 5px;"><b>Purpose:</b> To manage who can access the system and what they can see.</li>
+<li style="margin-bottom: 5px;"><b>Functionality:</b> Registration, login, role assignment (Admin, Driver, etc.), and approving pending registrations.</li>
+<li style="margin-bottom: 5px;"><b>Technologies:</b> React, Node.js, JWT, MongoDB.</li>
+<li style="margin-bottom: 5px;"><b>Responsible Members:</b> Rana Shubham (Backend APIs), Rana Bhavik (Frontend UI).</li>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">2. Admin Dashboard & Operations Module</h3>
+<li style="margin-bottom: 5px;"><b>Purpose:</b> To provide a central command center for Super Admins.</li>
+<li style="margin-bottom: 5px;"><b>Functionality:</b> Viewing analytics, managing fleet vehicles, dispatching drivers, managing warehouse inventory, and viewing audit logs.</li>
+<li style="margin-bottom: 5px;"><b>Technologies:</b> React (lucide-react icons), Express.js, MongoDB.</li>
+<li style="margin-bottom: 5px;"><b>Responsible Members:</b> Rana Shahil (Backend APIs & DB Operations), Rana Bhavik (Frontend components).</li>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">3. Customer Portal Module</h3>
+<li style="margin-bottom: 5px;"><b>Purpose:</b> To allow clients to view their active shipments.</li>
+<li style="margin-bottom: 5px;"><b>Functionality:</b> Customer dashboard, viewing orders, submitting support tickets, viewing company profile.</li>
+<li style="margin-bottom: 5px;"><b>Technologies:</b> React, Express, MongoDB.</li>
+<li style="margin-bottom: 5px;"><b>Responsible Members:</b> Rana Bhavik (Frontend), Rana Shahil (Backend).</li>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">4. AI Center Module</h3>
+<li style="margin-bottom: 5px;"><b>Purpose:</b> To optimize logistics routing and predict delays.</li>
+<li style="margin-bottom: 5px;"><b>Functionality:</b> Calculates ETAs based on weather/traffic parameters and optimizes multi-stop routes.</li>
+<li style="margin-bottom: 5px;"><b>Technologies:</b> React state management, Node.js processing logic.</li>
+<li style="margin-bottom: 5px;"><b>Responsible Member:</b> Rana Bhavik.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 10 — Frontend Module</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Maintained by: Rana Bhavik</b></p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The frontend of Logistis is built as a Single Page Application (SPA) using React and Vite. </p>
+<li style="margin-bottom: 5px;"><b>Routing:</b> Handled via <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">react-router-dom</code>. The application is divided into <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">AuthLayout</code>, <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">AdminLayout</code>, and <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">CustomerLayout</code> to ensure users only see navigation links relevant to their role.</li>
+<li style="margin-bottom: 5px;"><b>State Management:</b> Handled natively using React Hooks (<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">useState</code>, <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">useEffect</code>).</li>
+<li style="margin-bottom: 5px;"><b>UI/UX:</b> Tailwind CSS is used extensively to create a dark, modern, "glassmorphism" aesthetic. Icons are provided by <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">lucide-react</code>.</li>
+<li style="margin-bottom: 5px;"><b>API Integration:</b> A centralized API service (<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">src/services/api.ts</code>) is used to manage all <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">fetch</code> calls to the backend, attaching the JWT token automatically to protected routes.</li>
+<li style="margin-bottom: 5px;"><b>Validation:</b> Forms (like login and registration) use basic HTML and React-state validation to prevent empty submissions before reaching the server.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 11 — Backend Module</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The backend operations are handled via a Node.js/Express server and divided between the backend team members.</p>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">Rana Shubham (Group Leader)</h3>
+<li style="margin-bottom: 5px;"><b>Authentication & Security:</b> Created the JWT authentication middleware (<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">authenticate</code>) that parses the <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">Authorization</code> header and validates the token signature before allowing access to protected routes.</li>
+<li style="margin-bottom: 5px;"><b>Server Architecture:</b> Set up the main <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">server.ts</code> file, configuring CORS, Helmet, and environmental variables.</li>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">Rana Shahil</h3>
+<li style="margin-bottom: 5px;"><b>Entity APIs:</b> Implemented the CRUD routes for <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">orders.ts</code>, <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">fleet.ts</code>, <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">warehouse.ts</code>, and <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">shipments.ts</code>.</li>
+<li style="margin-bottom: 5px;"><b>Database Operations:</b> Wrote the Mongoose queries (e.g., <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">Order.find()</code>, <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">Shipment.updateOne()</code>) to retrieve and update data securely based on the requests coming from the frontend.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 12 — Database Module</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The system uses MongoDB, a NoSQL database, which is ideal for storing dynamic logistics documents.</p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Responsibilities:</b></p>
+<li style="margin-bottom: 5px;"><b>Rana Shubham:</b> Designed the initial schema architecture and established relationships between collections.</li>
+<li style="margin-bottom: 5px;"><b>Rana Shahil:</b> Implemented the Mongoose models and executed database testing.</li>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Database Structure:</b></p>
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial; font-size: 11pt;">
+<tr><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Collection/Model</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Purpose</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Important Fields</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Responsible Member</th></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">User</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Stores credentials & roles</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">email, password, role, status</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shubham</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Company</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Stores client business details</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">name, industry, plan</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shubham</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Order</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Stores client shipment requests</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">trackingNumber, status, origin</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shahil</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Shipment</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Tracks live transit data</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">orderId, currentLocation</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shahil</td></tr>
+</table>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 13 — AI Module</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Maintained by: Rana Bhavik</b></p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The AI Module (located in the frontend at <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">AiCenter.tsx</code> and backed by the <code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">ai.ts</code> API route) was added to modernize the logistics process.</p>
+<li style="margin-bottom: 5px;"><b>Purpose:</b> To shift from manual guessing of arrival times to data-driven predictions.</li>
+<li style="margin-bottom: 5px;"><b>Workflow:</b> The user selects a transport mode (Truck, Air, Sea), inputs distance, weather severity, and traffic factors via range sliders on the frontend.</li>
+<li style="margin-bottom: 5px;"><b>Processing:</b> When the user clicks "Simulate", the frontend sends these parameters to the backend. The backend uses algorithmic logic to calculate estimated travel hours, CO2 emissions, and a route confidence percentage.</li>
+<li style="margin-bottom: 5px;"><b>Integration:</b> The results are sent back as JSON and displayed dynamically in a sleek results card on the UI.</li>
+<p style="margin-bottom: 10px; line-height: 1.6;"><i>(Note: This project utilizes internal algorithmic processing to simulate AI behavior for educational demonstration).</i></p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 14 — API Documentation</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">Below is a subset of the actual REST APIs implemented in the project:</p>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial; font-size: 11pt;">
+<tr><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Method</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Endpoint</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Purpose</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Responsible</th></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">POST</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">/api/auth/login</code></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Authenticates a user and returns a JWT token</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shubham</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">POST</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">/api/auth/register</code></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Creates a new user with 'Pending' status</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shubham</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">GET</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">/api/users</code></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Fetches all users (protected by auth middleware)</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shahil</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">POST</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">/api/ai/predict-eta</code></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Submits route parameters for ETA calculation</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Bhavik</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">GET</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">/api/orders</code></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Retrieves logistics orders from the database</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shahil</td></tr>
+</table>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 15 — Important Code Explanation</h1>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">1. Backend Authentication Middleware (<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">auth.ts</code>)</h3>
+<p style="margin-bottom: 10px; line-height: 1.6;">``<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">typescript</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">export const authenticate = (req: AuthRequest, res: Response, next: NextFunction) => {</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">  const token = req.header('Authorization')?.replace('Bearer ', '');</p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">  if (!token) {</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">    console.error('[Auth Error] No token provided');</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">    return res.status(401).json({ error: 'Authentication required' });</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">  }</p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">  try {</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret_key');</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">    req.user = decoded;</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">    next();</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">  } catch (error: any) {</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">    res.status(401).json({ error: 'Invalid or expired token' });</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">  }</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">};</p>
+<p style="margin-bottom: 10px; line-height: 1.6;"></code>`<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"></p>
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Explanation:</b> This code protects the server. When a request is made, it checks if a token exists in the header. If it does, it uses </code>jwt.verify<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> to decode it. If the token is valid, it allows the request to continue (</code>next()<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">); if not, it blocks it with a </code>401 Unauthorized<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> error.</p>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">2. Frontend User Filtering (</code>Users.tsx<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">)</h3>
+<p style="margin-bottom: 10px; line-height: 1.6;"></code>`<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;">tsx</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">users</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">  .filter(user => user.status === 'Pending' || user.role === 'Super Admin' || user.role === 'Company Admin')</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">  .map((user) => (</p>
+<p style="margin-bottom: 10px; line-height: 1.6;">  <tr key={user._id} className="hover:bg-white/[0.02] transition-colors"></p>
+<p style="margin-bottom: 10px; line-height: 1.6;"></code>`<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"></p>
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Explanation:</b> This simple React code filters the list of users fetched from the database. It ensures that the table only displays users who are 'Pending' approval, or high-level admins, keeping the UI clean and relevant for the person managing user access.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 16 — User Flow</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>User Registration Flow:</b></p>
+<p style="margin-bottom: 10px; line-height: 1.6;">User opens website → Clicks "Register" → Fills in details and selects role (e.g., Driver) → Submits form → Frontend sends POST request to </code>/api/auth/register<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> → Backend saves user with status 'Pending' → User waits for Admin approval.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 17 — Admin Flow</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Admin Approval Flow:</b></p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Super Admin Logs in → Receives JWT token → Redirected to Admin Dashboard → Navigates to "Users & Roles" → Frontend sends GET request to </code>/api/users<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> with Token → Backend verifies Token → Returns pending users → Admin clicks "Approve" → User status updates to 'Active'.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 18 — AI Flow</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Dispatcher Route Optimization Flow:</b></p>
+<p style="margin-bottom: 10px; line-height: 1.6;">Dispatcher navigates to AI Center → Enters multiple delivery stops (e.g., Munich, Vienna) → Clicks "Optimize Route" → Frontend sends stops array to </code>/api/ai/optimize-route<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> → Backend processes logic → Returns reordered optimized path → Frontend updates the UI visualization.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 19 — Testing</h1>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial; font-size: 11pt;">
+<tr><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Test Case ID</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Module</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Test Scenario</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Input</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Expected Result</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Actual Result</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Status</th></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">TC-01</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Auth</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Login with incorrect password</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Wrong credentials</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Deny access, show error message</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Access denied, error shown</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Pass</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">TC-02</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Auth</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Login with correct password</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Correct credentials</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Generate JWT, redirect to portal</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">JWT generated, redirected</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Pass</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">TC-03</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">UI</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Click "Team & Users" without token</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">No token</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Redirect to Login page</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Redirected to Login</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Pass</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">TC-04</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">AI</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Predict ETA with High Traffic</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Traffic slider = 2.0</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Increased estimated travel time</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Travel time increased</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Pass</td></tr>
+</table>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 20 — Security</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">The following security mechanisms were implemented:</p>
+<li style="margin-bottom: 5px;"><b>JWT (JSON Web Tokens):</b> Used to maintain stateless, secure sessions.</li>
+<li style="margin-bottom: 5px;"><b>Password Hashing:</b> Passwords are not saved as plain text; they are secured using </code>bcrypt<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> before being stored in the database.</li>
+<li style="margin-bottom: 5px;"><b>Route Protection:</b> React Router is used alongside backend middleware to ensure users cannot view pages or access data outside their authorized role.</li>
+<li style="margin-bottom: 5px;"><b>CORS:</b> Cross-Origin Resource Sharing is enabled on the backend to only accept requests from authorized frontend origins.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 21 — Error Handling</h1>
+
+<li style="margin-bottom: 5px;"><b>Frontend Errors:</b> Uses </code>try...catch<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> blocks during API calls. If an error occurs (e.g., network failure or 401 Unauthorized), the UI displays a Javascript alert or on-screen text to notify the user seamlessly.</li>
+<li style="margin-bottom: 5px;"><b>Backend Errors:</b> Controllers use </code>try...catch<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> blocks to prevent the server from crashing. Database query failures respond with a </code>500 Internal Server Error<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> and a descriptive JSON message.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 22 — Screenshots / UI Documentation</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><i>(Information not available in the provided project files — screenshots must be attached manually by the students before final submission).</i></p>
+<li style="margin-bottom: 5px;"><b>Screen 1: Login Page:</b> Features a 1-Click Role Switcher and standard email/password inputs.</li>
+<li style="margin-bottom: 5px;"><b>Screen 2: Admin Dashboard:</b> Displays high-level statistics, active orders, and quick actions.</li>
+<li style="margin-bottom: 5px;"><b>Screen 3: AI Center:</b> Features input sliders for distance and weather, alongside a predictive output card.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 23 — Team Member Contribution</h1>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial; font-size: 11pt;">
+<tr><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Member</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Area</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Modules/Features</th><th style="border: 1px solid #ddd; padding: 12px 8px; background-color: #f4f6f8; text-align: left; font-weight: bold; color: #333;">Main Work</th></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;"><hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;"></td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shubham</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Backend + DB + Leadership</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Auth API, DB schemas, server.ts</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Architecture design, JWT implementation, coordination</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Shahil</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Backend + DB</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Entity APIs (Orders, Fleet), DB Ops</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">CRUD operations, backend endpoints, route logic</td></tr>
+<tr><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Rana Bhavik</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">Frontend + AI</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">UI/UX, AI Center, API Integration</td><td style="border: 1px solid #ddd; padding: 10px 8px; color: #444;">React components, Tailwind styling, AI simulation</td></tr>
+</table>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 24 — Individual Responsibilities</h1>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">Rana Shubham</h3>
+<p style="margin-bottom: 10px; line-height: 1.6;">As the group leader, I was responsible for coordinating the project and designing the backend foundation. I set up the initial Node.js and Express server environment, configured the database connections using Mongoose, and implemented the core authentication system using JSON Web Tokens (JWT). I also ensured that the backend securely communicated with the frontend.</p>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">Rana Shahil</h3>
+<p style="margin-bottom: 10px; line-height: 1.6;">My main responsibility was to flesh out the backend features. I developed the various API routes required for the platform, including the Fleet, Warehouse, and Order management routes. I wrote the Mongoose queries to ensure data could be created, read, updated, and deleted reliably by the system users.</p>
+
+<h3 style="color: #2c3e50; font-family: Arial; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px;">Rana Bhavik</h3>
+<p style="margin-bottom: 10px; line-height: 1.6;">I focused on bringing the project to life visually. I built the entire frontend using React and Vite, utilizing Tailwind CSS to create a modern, dark-themed dashboard. I also integrated the frontend with the backend APIs via Axios/Fetch, and conceptualized and implemented the AI Center module where users can simulate ETAs.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 25 — Challenges Faced</h1>
+
+<li style="margin-bottom: 5px;"><b>Authentication Token Bugs:</b> We faced a major issue where the frontend was getting stuck in an infinite redirect loop because a mock token was being saved to local storage, which the live backend continually rejected as unauthorized.</li>
+<li style="margin-bottom: 5px;"><b>Environment Variable Loading:</b> We encountered a cryptographic bug where the JWT token was signed with a fallback secret instead of the </code>.env<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> secret because the </code>auth.ts<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> routes were imported before </code>dotenv.config()<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> was called.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 26 — Solutions Implemented</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Problem:</b> Infinite redirect loop upon login.</p>
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Investigation:</b> We realized the frontend error-handling was retaining a corrupted token in local storage instead of clearing it upon receiving a 401 error.</p>
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Solution:</b> We updated the </code>Users.tsx<code style="background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: Consolas;"> fetch catch-block to explicitly execute </code>localStorage.removeItem('token')` if the API returns a 401 or 403 status.</p>
+<p style="margin-bottom: 10px; line-height: 1.6;"><b>Result:</b> The frontend correctly wipes broken sessions and redirects the user safely to the login screen, resolving the loop.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 27 — Advantages</h1>
+
+<li style="margin-bottom: 5px;">Centralized management of global logistics operations.</li>
+<li style="margin-bottom: 5px;">Beautiful, highly responsive user interface that is easy to navigate.</li>
+<li style="margin-bottom: 5px;">Role-based security prevents unauthorized data manipulation.</li>
+<li style="margin-bottom: 5px;">AI-driven estimations save dispatchers time when planning routes.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 28 — Limitations</h1>
+
+<li style="margin-bottom: 5px;"><b>Dependency on Internet:</b> As a web-based application, it cannot operate without an active internet connection.</li>
+<li style="margin-bottom: 5px;"><b>Simulated AI:</b> The current AI module utilizes internal algorithms rather than calling an external machine learning model, limiting its real-world predictive accuracy.</li>
+<li style="margin-bottom: 5px;"><b>Limited Real-Time GPS:</b> The fleet tracking relies on simulated data updates rather than live hardware telemetry.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 29 — Future Scope</h1>
+
+<li style="margin-bottom: 5px;"><b>Frontend:</b> Implement map integrations (like Google Maps API) for visual live-tracking of vehicles.</li>
+<li style="margin-bottom: 5px;"><b>Backend:</b> Add robust automated email and SMS notification systems for when shipments are delayed.</li>
+<li style="margin-bottom: 5px;"><b>AI Improvements:</b> Integrate an actual Machine Learning model via Python APIs to predict delays based on historical logistics datasets.</li>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 30 — Conclusion</h1>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">In conclusion, the "Logistis" project successfully demonstrates a modern solution to logistics management. By utilizing React for a dynamic frontend, Node.js for a robust backend, and MongoDB for flexible data storage, the team was able to create a highly functional prototype. </p>
+
+<p style="margin-bottom: 10px; line-height: 1.6;">Through this project, the team learned how to coordinate module development, handle secure JWT authentication, build responsive interfaces, and debug complex integration issues. The division of labor allowed us to explore different domains of web development effectively, resulting in a cohesive system that meets the proposed objectives.</p>
+
+<h1 style="color: #1a252f; font-family: Arial; text-align: center; margin-bottom: 20px;">Chapter 31 — References</h1>
+
+<li style="margin-bottom: 5px;">React Documentation: https://react.dev/</li>
+<li style="margin-bottom: 5px;">Node.js Documentation: https://nodejs.org/en/docs/</li>
+<li style="margin-bottom: 5px;">Express.js Routing Guide: https://expressjs.com/en/guide/routing.html</li>
+<li style="margin-bottom: 5px;">Mongoose Documentation: https://mongoosejs.com/docs/</li>
+<li style="margin-bottom: 5px;">Tailwind CSS Utility Classes: https://tailwindcss.com/docs</li>
+
+</body>
+</html>

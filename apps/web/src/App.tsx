@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import ChatAssistant from './components/ChatAssistant';
 import MarketingPage from './pages/MarketingPage';
 import AuthLayout from './layouts/AuthLayout';
 import Login from './pages/auth/Login';
@@ -71,6 +72,7 @@ function App() {
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <ChatAssistant />
     </BrowserRouter>
   );
 }

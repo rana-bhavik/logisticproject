@@ -1,0 +1,171 @@
+<html><head><style>body{font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px;} h1{color: #333;} h2{color: #444;} table{border-collapse: collapse; width: 100%;} th, td{border: 1px solid #ccc; padding: 8px; text-align: left;} th{background-color: #f4f4f4;} pre{background: #f4f4f4; padding: 10px; border-radius: 5px;}</style></head><body><h1></h1><br><br><h2></h2><br><br><b></b> Logistis - Global Logistics Management System<br><br><b></b>
+1. Rana Shubham — Group Leader
+2. Rana Shahil
+3. Rana Bhavik<br><br><b></b> [Information not available in the provided project files.]
+<b></b> [Information not available in the provided project files.]
+<b></b> [Information not available in the provided project files.]<br><br>---<br><br><h1></h1><br><br>The logistics and supply chain industry forms the backbone of global trade. However, managing fleets, shipments, and warehouses involves complex coordination that is often prone to human error and delays. The "Logistis" project is a comprehensive logistics management system designed to streamline these operations. <br><br>The purpose of this project is to provide an integrated platform where administrators, dispatchers, warehouse managers, drivers, and corporate clients can interact seamlessly. By bringing all logistics operations into a single digital ecosystem, the system aims to improve efficiency, provide real-time tracking, optimize routes using Artificial Intelligence, and enhance overall transparency for clients. <br><br><h1></h1><br><br>In traditional logistics environments, data is often siloed across different departments. Manual systems and fragmented software tools lead to miscommunication between dispatchers and drivers, inaccurate estimated times of arrival (ETAs), and inefficient routing. <br><br>The existing problem is that when a client places an order for a shipment, tracking that shipment across multiple transit points (warehouses, sea ports, highways) requires constant manual updates. Furthermore, without intelligent routing, fleets consume excess fuel and face unexpected delays due to traffic and weather conditions. The proposed "Logistis" system solves this by unifying data into a central database and providing role-specific dashboards that update in real-time, augmented by AI tools to predict delays before they occur.<br><br><h1></h1><br><br>The main objectives of the Logistis project are to:
+1. Develop an easy-to-use, unified dashboard for different user roles (Super Admin, Company Admin, Dispatcher, Warehouse Manager, Driver).
+2. Automate the tracking and management of shipments and orders.
+3. Provide secure, role-based data access and user authentication using JWT.
+4. Implement AI functionality to predict accurate ETAs based on distance, transport mode, weather, and traffic.
+5. Provide a responsive, real-time frontend interface that interacts smoothly with the backend database.<br><br><h1></h1><br><br>Traditionally, logistics management relies on a combination of spreadsheets, manual data entry, phone calls to drivers, and disconnected tracking software. 
+The limitations of this existing method include:
+- High margin for human error during data entry.
+- Lack of real-time visibility for clients waiting for their shipments.
+- Sub-optimal route planning relying solely on human intuition.
+- Difficulty in auditing logs and tracking historical performance.
+Because of these disadvantages, there is a strong need for an automated, centralized, and intelligent system like Logistis.<br><br><h1></h1><br><br>The proposed system is a full-stack web application with the following major features:
+- <b></b> Dedicated interfaces for Admin, Customer, and Driver.
+- <b></b> Built with React, Vite, and Tailwind CSS for a modern, responsive user experience.
+- <b></b> Built on Node.js and Express to handle RESTful APIs.
+- <b></b> MongoDB is used to store unstructured data for Users, Companies, Orders, and Shipments flexibly.
+- <b></b> Secure login and registration using JSON Web Tokens (JWT).
+- <b></b> An integrated AI module that simulates predictive ETAs and optimizes delivery routes.
+- <b></b> Ability to approve pending users, manage fleets, oversee warehouse inventory, and review financial analytics.<br><br><h1></h1><br><br>| Technology | Purpose |
+| --- | --- |
+| React | Frontend interface and component rendering |
+| JavaScript / TypeScript | Frontend logic and backend server scripting |
+| Tailwind CSS | UI styling and responsive design |
+| Node.js | Backend runtime environment |
+| Express.js | Backend server framework and API routing |
+| MongoDB | Database storage |
+| Mongoose | Database object modeling and interaction |
+| Socket.io | Real-time communication |
+| JWT (JSON Web Token) | User authentication and session security |<br><br><h1></h1><br><br><h3></h3>
+- <b></b> Intel Core i3 / AMD Ryzen 3 or higher
+- <b></b> 4GB minimum (8GB recommended for smooth development server running)
+- <b></b> 1GB of free space<br><br><h3></h3>
+- <b></b> Windows 10/11, macOS, or Linux
+- <b></b> Google Chrome, Mozilla Firefox, or Microsoft Edge
+- <b></b> VS Code
+- <b></b> Node.js (v18+)
+- <b></b> MongoDB locally installed or MongoDB Atlas cloud<br><br><h1></h1><br><br>The project follows a standard MERN-like Client-Server architecture.<br><br><b></b>
+User  
+↓  
+React Frontend (Vite)  
+↓  
+Axios API Request (`/api/...`)  
+↓  
+Express.js Backend Controller  
+↓  
+Mongoose Model  
+↓  
+MongoDB Database  
+↓  
+JSON Response back to Frontend<br><br><b></b>
+User inputs route details  
+↓  
+Frontend AI Center Component  
+↓  
+Backend AI Route (`/api/ai/predict-eta`)  
+↓  
+Processing/Calculation Logic  
+↓  
+Response with optimal route & ETA  
+↓  
+Frontend Display<br><br><h1></h1><br><br><h3></h3>
+- <b></b> To manage who can access the system and what they can see.
+- <b></b> Registration, login, role assignment (Admin, Driver, etc.), and approving pending registrations.
+- <b></b> React, Node.js, JWT, MongoDB.
+- <b></b> Rana Shubham (Backend APIs), Rana Bhavik (Frontend UI).<br><br><h3></h3>
+- <b></b> To provide a central command center for Super Admins.
+- <b></b> Viewing analytics, managing fleet vehicles, dispatching drivers, managing warehouse inventory, and viewing audit logs.
+- <b></b> React (lucide-react icons), Express.js, MongoDB.
+- <b></b> Rana Shahil (Backend APIs & DB Operations), Rana Bhavik (Frontend components).<br><br><h3></h3>
+- <b></b> To allow clients to view their active shipments.
+- <b></b> Customer dashboard, viewing orders, submitting support tickets, viewing company profile.
+- <b></b> React, Express, MongoDB.
+- <b></b> Rana Bhavik (Frontend), Rana Shahil (Backend).<br><br><h3></h3>
+- <b></b> To optimize logistics routing and predict delays.
+- <b></b> Calculates ETAs based on weather/traffic parameters and optimizes multi-stop routes.
+- <b></b> React state management, Node.js processing logic.
+- <b></b> Rana Bhavik.<br><br><h1></h1><br><br><b></b><br><br>The frontend of Logistis is built as a Single Page Application (SPA) using React and Vite. 
+- <b></b> Handled via `react-router-dom`. The application is divided into `AuthLayout`, `AdminLayout`, and `CustomerLayout` to ensure users only see navigation links relevant to their role.
+- <b></b> Handled natively using React Hooks (`useState`, `useEffect`).
+- <b></b> Tailwind CSS is used extensively to create a dark, modern, "glassmorphism" aesthetic. Icons are provided by `lucide-react`.
+- <b></b> A centralized API service (`src/services/api.ts`) is used to manage all `fetch` calls to the backend, attaching the JWT token automatically to protected routes.
+- <b></b> Forms (like login and registration) use basic HTML and React-state validation to prevent empty submissions before reaching the server.<br><br><h1></h1><br><br>The backend operations are handled via a Node.js/Express server and divided between the backend team members.<br><br><h3></h3>
+- <b></b> Created the JWT authentication middleware (`authenticate`) that parses the `Authorization` header and validates the token signature before allowing access to protected routes.
+- <b></b> Set up the main `server.ts` file, configuring CORS, Helmet, and environmental variables.<br><br><h3></h3>
+- <b></b> Implemented the CRUD routes for `orders.ts`, `fleet.ts`, `warehouse.ts`, and `shipments.ts`.
+- <b></b> Wrote the Mongoose queries (e.g., `Order.find()`, `Shipment.updateOne()`) to retrieve and update data securely based on the requests coming from the frontend.<br><br><h1></h1><br><br>The system uses MongoDB, a NoSQL database, which is ideal for storing dynamic logistics documents.<br><br><b></b>
+- <b></b> Designed the initial schema architecture and established relationships between collections.
+- <b></b> Implemented the Mongoose models and executed database testing.<br><br><b></b>
+| Collection/Model | Purpose | Important Fields | Responsible Member |
+| --- | --- | --- | --- |
+| User | Stores credentials & roles | email, password, role, status | Rana Shubham |
+| Company | Stores client business details | name, industry, plan | Rana Shubham |
+| Order | Stores client shipment requests | trackingNumber, status, origin | Rana Shahil |
+| Shipment | Tracks live transit data | orderId, currentLocation | Rana Shahil |<br><br><h1></h1><br><br><b></b><br><br>The AI Module (located in the frontend at `AiCenter.tsx` and backed by the `ai.ts` API route) was added to modernize the logistics process.
+- <b></b> To shift from manual guessing of arrival times to data-driven predictions.
+- <b></b> The user selects a transport mode (Truck, Air, Sea), inputs distance, weather severity, and traffic factors via range sliders on the frontend.
+- <b></b> When the user clicks "Simulate", the frontend sends these parameters to the backend. The backend uses algorithmic logic to calculate estimated travel hours, CO2 emissions, and a route confidence percentage.
+- <b></b> The results are sent back as JSON and displayed dynamically in a sleek results card on the UI.
+<i></i><br><br><h1></h1><br><br>Below is a subset of the actual REST APIs implemented in the project:<br><br>| Method | Endpoint | Purpose | Responsible |
+| --- | --- | --- | --- |
+| POST | `/api/auth/login` | Authenticates a user and returns a JWT token | Rana Shubham |
+| POST | `/api/auth/register` | Creates a new user with 'Pending' status | Rana Shubham |
+| GET | `/api/users` | Fetches all users (protected by auth middleware) | Rana Shahil |
+| POST | `/api/ai/predict-eta` | Submits route parameters for ETA calculation | Rana Bhavik |
+| GET | `/api/orders` | Retrieves logistics orders from the database | Rana Shahil |<br><br><h1></h1><br><br><h3></h3>
+```typescript
+export const authenticate = (req: AuthRequest, res: Response, next: NextFunction) => {
+  const token = req.header('Authorization')?.replace('Bearer ', '');<br><br>  if (!token) {
+    console.error('[Auth Error] No token provided');
+    return res.status(401).json({ error: 'Authentication required' });
+  }<br><br>  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret_key');
+    req.user = decoded;
+    next();
+  } catch (error: any) {
+    res.status(401).json({ error: 'Invalid or expired token' });
+  }
+};
+```
+<b></b> This code protects the server. When a request is made, it checks if a token exists in the header. If it does, it uses `jwt.verify` to decode it. If the token is valid, it allows the request to continue (`next()`); if not, it blocks it with a `401 Unauthorized` error.<br><br><h3></h3>
+```tsx
+users
+  .filter(user => user.status === 'Pending' || user.role === 'Super Admin' || user.role === 'Company Admin')
+  .map((user) => (
+  <tr key={user._id} className="hover:bg-white/[0.02] transition-colors">
+```
+<b></b> This simple React code filters the list of users fetched from the database. It ensures that the table only displays users who are 'Pending' approval, or high-level admins, keeping the UI clean and relevant for the person managing user access.<br><br><h1></h1><br><br><b></b>
+User opens website → Clicks "Register" → Fills in details and selects role (e.g., Driver) → Submits form → Frontend sends POST request to `/api/auth/register` → Backend saves user with status 'Pending' → User waits for Admin approval.<br><br><h1></h1><br><br><b></b>
+Super Admin Logs in → Receives JWT token → Redirected to Admin Dashboard → Navigates to "Users & Roles" → Frontend sends GET request to `/api/users` with Token → Backend verifies Token → Returns pending users → Admin clicks "Approve" → User status updates to 'Active'.<br><br><h1></h1><br><br><b></b>
+Dispatcher navigates to AI Center → Enters multiple delivery stops (e.g., Munich, Vienna) → Clicks "Optimize Route" → Frontend sends stops array to `/api/ai/optimize-route` → Backend processes logic → Returns reordered optimized path → Frontend updates the UI visualization.<br><br><h1></h1><br><br>| Test Case ID | Module | Test Scenario | Input | Expected Result | Actual Result | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| TC-01 | Auth | Login with incorrect password | Wrong credentials | Deny access, show error message | Access denied, error shown | Pass |
+| TC-02 | Auth | Login with correct password | Correct credentials | Generate JWT, redirect to portal | JWT generated, redirected | Pass |
+| TC-03 | UI | Click "Team & Users" without token | No token | Redirect to Login page | Redirected to Login | Pass |
+| TC-04 | AI | Predict ETA with High Traffic | Traffic slider = 2.0 | Increased estimated travel time | Travel time increased | Pass |<br><br><h1></h1><br><br>The following security mechanisms were implemented:
+- <b></b> Used to maintain stateless, secure sessions.
+- <b></b> Passwords are not saved as plain text; they are secured using `bcrypt` before being stored in the database.
+- <b></b> React Router is used alongside backend middleware to ensure users cannot view pages or access data outside their authorized role.
+- <b></b> Cross-Origin Resource Sharing is enabled on the backend to only accept requests from authorized frontend origins.<br><br><h1></h1><br><br>- <b></b> Uses `try...catch` blocks during API calls. If an error occurs (e.g., network failure or 401 Unauthorized), the UI displays a Javascript alert or on-screen text to notify the user seamlessly.
+- <b></b> Controllers use `try...catch` blocks to prevent the server from crashing. Database query failures respond with a `500 Internal Server Error` and a descriptive JSON message.<br><br><h1></h1><br><br><i></i>
+- <b></b> Features a 1-Click Role Switcher and standard email/password inputs.
+- <b></b> Displays high-level statistics, active orders, and quick actions.
+- <b></b> Features input sliders for distance and weather, alongside a predictive output card.<br><br><h1></h1><br><br>| Member | Area | Modules/Features | Main Work |
+| --- | --- | --- | --- |
+| Rana Shubham | Backend + DB + Leadership | Auth API, DB schemas, server.ts | Architecture design, JWT implementation, coordination |
+| Rana Shahil | Backend + DB | Entity APIs (Orders, Fleet), DB Ops | CRUD operations, backend endpoints, route logic |
+| Rana Bhavik | Frontend + AI | UI/UX, AI Center, API Integration | React components, Tailwind styling, AI simulation |<br><br><h1></h1><br><br><h3></h3>
+As the group leader, I was responsible for coordinating the project and designing the backend foundation. I set up the initial Node.js and Express server environment, configured the database connections using Mongoose, and implemented the core authentication system using JSON Web Tokens (JWT). I also ensured that the backend securely communicated with the frontend.<br><br><h3></h3>
+My main responsibility was to flesh out the backend features. I developed the various API routes required for the platform, including the Fleet, Warehouse, and Order management routes. I wrote the Mongoose queries to ensure data could be created, read, updated, and deleted reliably by the system users.<br><br><h3></h3>
+I focused on bringing the project to life visually. I built the entire frontend using React and Vite, utilizing Tailwind CSS to create a modern, dark-themed dashboard. I also integrated the frontend with the backend APIs via Axios/Fetch, and conceptualized and implemented the AI Center module where users can simulate ETAs.<br><br><h1></h1><br><br>1. <b></b> We faced a major issue where the frontend was getting stuck in an infinite redirect loop because a mock token was being saved to local storage, which the live backend continually rejected as unauthorized.
+2. <b></b> We encountered a cryptographic bug where the JWT token was signed with a fallback secret instead of the `.env` secret because the `auth.ts` routes were imported before `dotenv.config()` was called.<br><br><h1></h1><br><br><b></b> Infinite redirect loop upon login.
+<b></b> We realized the frontend error-handling was retaining a corrupted token in local storage instead of clearing it upon receiving a 401 error.
+<b></b> We updated the `Users.tsx` fetch catch-block to explicitly execute `localStorage.removeItem('token')` if the API returns a 401 or 403 status.
+<b></b> The frontend correctly wipes broken sessions and redirects the user safely to the login screen, resolving the loop.<br><br><h1></h1><br><br>- Centralized management of global logistics operations.
+- Beautiful, highly responsive user interface that is easy to navigate.
+- Role-based security prevents unauthorized data manipulation.
+- AI-driven estimations save dispatchers time when planning routes.<br><br><h1></h1><br><br>- <b></b> As a web-based application, it cannot operate without an active internet connection.
+- <b></b> The current AI module utilizes internal algorithms rather than calling an external machine learning model, limiting its real-world predictive accuracy.
+- <b></b> The fleet tracking relies on simulated data updates rather than live hardware telemetry.<br><br><h1></h1><br><br>- <b></b> Implement map integrations (like Google Maps API) for visual live-tracking of vehicles.
+- <b></b> Add robust automated email and SMS notification systems for when shipments are delayed.
+- <b></b> Integrate an actual Machine Learning model via Python APIs to predict delays based on historical logistics datasets.<br><br><h1></h1><br><br>In conclusion, the "Logistis" project successfully demonstrates a modern solution to logistics management. By utilizing React for a dynamic frontend, Node.js for a robust backend, and MongoDB for flexible data storage, the team was able to create a highly functional prototype. <br><br>Through this project, the team learned how to coordinate module development, handle secure JWT authentication, build responsive interfaces, and debug complex integration issues. The division of labor allowed us to explore different domains of web development effectively, resulting in a cohesive system that meets the proposed objectives.<br><br><h1></h1><br><br>1. React Documentation: https://react.dev/
+2. Node.js Documentation: https://nodejs.org/en/docs/
+3. Express.js Routing Guide: https://expressjs.com/en/guide/routing.html
+4. Mongoose Documentation: https://mongoosejs.com/docs/
+5. Tailwind CSS Utility Classes: https://tailwindcss.com/docs
+</body></html>
