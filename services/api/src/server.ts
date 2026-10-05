@@ -15,7 +15,7 @@ import financeRoutes from './routes/finance';
 import aiRoutes from './routes/ai';
 import usersRoutes from './routes/users';
 
-dotenv.config();
+dotenv.config({ override: true }); // Force reload the environment variables
 
 const app = express();
 const server = http.createServer(app);
